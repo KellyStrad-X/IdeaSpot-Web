@@ -8,8 +8,7 @@ export default function Home() {
       <nav className={styles.nav}>
         <div className={styles.navContent}>
           <div className={styles.logo}>
-            <Image src="/logo.png" alt="IdeaSpot" width={40} height={40} />
-            <span className={styles.logoText}>IdeaSpot</span>
+            <Image src="/logo.png" alt="IdeaSpot" width={100} height={100} className={styles.logoImage} />
           </div>
           <button className={styles.navButton}>Join Beta</button>
         </div>
@@ -109,8 +108,7 @@ export default function Home() {
         <div className={styles.footerContent}>
           <div className={styles.footerBrand}>
             <div className={styles.footerLogo}>
-              <Image src="/logo.png" alt="IdeaSpot" width={32} height={32} />
-              <h3 className={styles.brandName}>IdeaSpot</h3>
+              <Image src="/logo.png" alt="IdeaSpot" width={100} height={100} />
             </div>
             <p className={styles.tagline}>Ideas, validated</p>
           </div>
@@ -132,9 +130,8 @@ export default function Home() {
 
             <div className={styles.linkColumn}>
               <h4 className={styles.linkHeading}>Legal</h4>
-              <a href="#terms" className={styles.footerLink}>Terms of Service</a>
-              <a href="#privacy" className={styles.footerLink}>Privacy Policy</a>
-              <a href="#cookies" className={styles.footerLink}>Cookie Policy</a>
+              <a href="/terms" className={styles.footerLink}>Terms of Service</a>
+              <a href="/privacy" className={styles.footerLink}>Privacy Policy</a>
             </div>
           </div>
         </div>
