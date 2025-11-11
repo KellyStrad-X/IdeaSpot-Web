@@ -1,0 +1,43 @@
+/* IdeaSpot Brand Styles - Simple CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #484847;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* IdeaSpot Brand Colors */
+:root {
+  --orange: #CA7A11;
+  --orange-light: #e6a532;
+  --gray-bg: #484847;
+  --gray-surface: #5a5a59;
+  --gray-lighter: #6e6e6d;
+  --gray-darker: #3a3a39;
+  --text-primary: #ffffff;
+  --text-secondary: #d0d0d0;
+  --text-tertiary: #a0a0a0;
+  --border: #606060;
+}
