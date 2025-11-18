@@ -10,7 +10,7 @@ export default function Home() {
           <div className={styles.logo}>
             <Image src="/logo.png" alt="IdeaSpot" width={100} height={100} className={styles.logoImage} />
           </div>
-          <button className={styles.navButton}>Join Beta</button>
+          <button className={styles.navButton}>Join Waitlist</button>
         </div>
       </nav>
 
@@ -25,7 +25,7 @@ export default function Home() {
               AI-powered analysis that transforms raw thoughts into research-backed business plans in minutes, not months.
             </p>
             <button className={styles.button}>
-              Join Beta Waitlist
+              Join Waitlist
             </button>
           </div>
 
@@ -64,7 +64,7 @@ export default function Home() {
               required
             />
             <button type="submit" className={styles.submitButton}>
-              Join Beta
+              Join Waitlist
             </button>
           </form>
           <p className={styles.disclaimer}>
