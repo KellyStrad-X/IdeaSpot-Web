@@ -3,6 +3,8 @@ import { NextResponse } from 'next/server';
 import path from 'path';
 import fs from 'fs';
 
+export const runtime = 'nodejs';
+
 export async function POST(request: Request) {
   try {
     const { email, source } = await request.json();
