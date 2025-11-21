@@ -1,7 +1,63 @@
+'use client';
+
+import { useState, FormEvent } from 'react';
 import styles from './page.module.css';
 import Image from 'next/image';
 
 export default function Home() {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>, source: string) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    setSuccess(false);
+
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, source }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess(true);
+        setEmail('');
+        setTimeout(() => setSuccess(false), 5000);
+      } else {
+        if (response.status === 409) {
+          setError('Looks like you are already on the waitlist.');
+        } else {
+          setError(data.error || 'Something went wrong');
+        }
+      }
+    } catch (err) {
+      setError('Failed to join waitlist. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleButtonClick = (source: string) => {
+    // Scroll to the signup form
+    const signupSection = document.getElementById('signup');
+    if (signupSection) {
+      signupSection.scrollIntoView({ behavior: 'smooth' });
+      // Focus the email input after scrolling
+      setTimeout(() => {
+        const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement;
+        if (emailInput) emailInput.focus();
+      }, 500);
+    }
+  };
+
   return (
     <main className={styles.main}>
       {/* Navigation */}
@@ -10,7 +66,12 @@ export default function Home() {
           <div className={styles.logo}>
             <Image src="/logo.png" alt="IdeaSpot" width={100} height={100} className={styles.logoImage} />
           </div>
-          <button className={styles.navButton}>Join Waitlist</button>
+          <button
+            className={styles.navButton}
+            onClick={() => handleButtonClick('nav-button')}
+          >
+            Join Waitlist
+          </button>
         </div>
       </nav>
 
@@ -24,7 +85,10 @@ export default function Home() {
             <p className={styles.subtitle}>
               AI-powered analysis that transforms raw thoughts into research-backed business plans in minutes, not months.
             </p>
-            <button className={styles.button}>
+            <button
+              className={styles.button}
+              onClick={() => handleButtonClick('hero-button')}
+            >
               Join Waitlist
             </button>
           </div>
@@ -34,7 +98,6 @@ export default function Home() {
             {['/IMG_4579.PNG', '/IMG_4580.PNG', '/IMG_4581.PNG', '/IMG_4582.PNG'].map((screenshot, i) => (
               <div key={i} className={styles.phoneContainer} style={{ '--index': i } as any}>
                 <div className={styles.phone}>
-                  <div className={styles.phoneNotch}></div>
                   <Image
                     src={screenshot}
                     alt={`IdeaSpot App Screenshot ${i + 1}`}
@@ -50,23 +113,46 @@ export default function Home() {
       </section>
 
       {/* Email Signup Section */}
-      <section className={styles.signup}>
+      <section className={styles.signup} id="signup">
         <div className={styles.signupCard}>
-          <h2 className={styles.signupTitle}>Get Early Access</h2>
+          <h2 className={styles.signupTitle}>Join the Waitlist</h2>
           <p className={styles.signupText}>
             Join our beta program and be the first to validate your ideas with IdeaSpot.
           </p>
-          <form className={styles.signupForm}>
+          <form
+            className={styles.signupForm}
+            onSubmit={(e) => handleSubmit(e, 'signup-form')}
+          >
             <input
               type="email"
               placeholder="Enter your email"
               className={styles.emailInput}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={loading}
             />
-            <button type="submit" className={styles.submitButton}>
-              Join Waitlist
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={loading}
+            >
+              {loading ? 'Joining...' : 'Join Waitlist'}
             </button>
           </form>
+
+          {success && (
+            <p className={styles.successMessage}>
+              Thanks for joining! We'll be in touch soon.
+            </p>
+          )}
+
+          {error && (
+            <p className={styles.errorMessage}>
+              {error}
+            </p>
+          )}
+
           <p className={styles.disclaimer}>
             Free for beta testers. No credit card required.
           </p>
