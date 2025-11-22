@@ -1,0 +1,331 @@
+/* Pricing Page */
+.pricingPage {
+  min-height: 100vh;
+  padding-top: 80px;
+  background-color: var(--gray-bg);
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(72, 72, 71, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  height: 80px;
+}
+
+.navContent {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0.25rem 0;
+}
+
+.logoImage {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.navButton {
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(to right, var(--orange), var(--orange-light));
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.navButton:hover {
+  transform: scale(1.05);
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  line-height: 1.3;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* PRO Label */
+.proLabel {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Plan Cards */
+.planCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+
+.planCard {
+  background-color: var(--gray-surface);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.planCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.planCard.selected {
+  border-color: var(--orange);
+  border-width: 2.5px;
+  box-shadow: 0 0 20px rgba(202, 122, 17, 0.3);
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--orange);
+  min-height: 1rem;
+  text-align: center;
+}
+
+.planTitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.price {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0.5rem 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--orange);
+  min-height: 1.5rem;
+}
+
+.checkmark {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+  transition: color 0.2s;
+}
+
+.planCard.selected .checkmark {
+  color: var(--orange);
+}
+
+.planCard:not(.selected) .checkmark {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+.selectedLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  min-height: 1rem;
+}
+
+/* Features */
+.features {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--gray-surface);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.feature:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.featureIcon {
+  color: var(--orange);
+  font-weight: 700;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* CTA Button */
+.ctaButton {
+  background: linear-gradient(to right, var(--orange), var(--orange-light));
+  color: white;
+  padding: 1.25rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.ctaButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(202, 122, 17, 0.4);
+}
+
+.ctaButton:active {
+  transform: scale(0.98);
+}
+
+.arrow {
+  font-size: 1.5rem;
+}
+
+/* Tagline */
+.tagline {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.taglineMain {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.taglineEmphasis {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+}
+
+/* Beta Notice */
+.betaNotice {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav {
+    height: 70px;
+  }
+
+  .pricingPage {
+    padding-top: 70px;
+  }
+
+  .navContent {
+    padding: 0 1rem;
+  }
+
+  .navButton {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .container {
+    padding: 2rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .proLabel {
+    font-size: 2.5rem;
+  }
+
+  .planCards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .price {
+    font-size: 1.5rem;
+  }
+
+  .features {
+    padding: 1.5rem;
+  }
+
+  .feature {
+    font-size: 0.95rem;
+  }
+
+  .ctaButton {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .taglineMain {
+    font-size: 1.1rem;
+  }
+
+  .taglineEmphasis {
+    font-size: 1.3rem;
+  }
+}

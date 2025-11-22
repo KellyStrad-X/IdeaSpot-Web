@@ -203,7 +203,7 @@ export default function Home() {
             <div className={styles.linkColumn}>
               <h4 className={styles.linkHeading}>Product</h4>
               <a href="#features" className={styles.footerLink}>Features</a>
-              <a href="#pricing" className={styles.footerLink}>Pricing</a>
+              <a href="/pricing" className={styles.footerLink}>Pricing</a>
               <a href="#beta" className={styles.footerLink}>Beta Access</a>
             </div>
 
