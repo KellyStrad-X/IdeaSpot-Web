@@ -59,7 +59,7 @@ export default function Privacy() {
         <section className={styles.section}>
           <h2>4. AI Processing</h2>
           <p>
-            Your business ideas are processed using Anthropic's Claude Sonnet 4.5 API to generate analysis and recommendations.
+            Your business ideas are processed using Anthropic's Claude API to generate analysis and recommendations.
             This processing is subject to Anthropic's data usage policies. We do not use your idea content to
             train our AI models or share it publicly.
           </p>

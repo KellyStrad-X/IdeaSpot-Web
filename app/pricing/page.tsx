@@ -50,7 +50,7 @@ export default function Pricing() {
           >
             <div className={styles.badge}>&nbsp;</div>
             <div className={styles.planTitle}>Monthly</div>
-            <div className={styles.price}>$5.99/mo</div>
+            <div className={styles.price}>$6.99/mo</div>
             <div className={styles.subtitle}>&nbsp;</div>
             <div className={styles.checkmark}>
               {selectedPlan === 'monthly' ? '☑' : '☐'}
@@ -67,8 +67,8 @@ export default function Pricing() {
           >
             <div className={styles.badge}>Recommended!</div>
             <div className={styles.planTitle}>Annual</div>
-            <div className={styles.price}>$57.00/yr</div>
-            <div className={styles.subtitle}>save $14.88!</div>
+            <div className={styles.price}>$66.99/yr</div>
+            <div className={styles.subtitle}>save ~$17!</div>
             <div className={styles.checkmark}>
               {selectedPlan === 'yearly' ? '☑' : '☐'}
             </div>
