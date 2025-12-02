@@ -85,6 +85,79 @@
   line-height: 1.5;
 }
 
+.stepsList {
+  text-align: left;
+  margin: 1rem 0 0 0;
+  padding-left: 1.25rem;
+  color: var(--text-primary);
+  line-height: 2;
+}
+
+.stepsList li {
+  margin-bottom: 0.5rem;
+}
+
+.stepsList strong {
+  color: var(--orange-light);
+}
+
+.showButton {
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, var(--orange), var(--orange-light));
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(202, 122, 17, 0.3);
+}
+
+.showButton:hover {
+  transform: scale(1.05);
+}
+
+.showButton:active {
+  transform: scale(0.98);
+}
+
+.visualGuide {
+  position: fixed;
+  top: 60px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: pulse 1.5s infinite;
+}
+
+.arrow {
+  font-size: 3rem;
+  color: var(--orange);
+  text-shadow: 0 2px 8px rgba(202, 122, 17, 0.5);
+}
+
+.guideText {
+  background: var(--orange);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-top: 0.5rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
 /* Mobile responsiveness */
 @media (max-width: 480px) {
   .title {
