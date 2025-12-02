@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "IdeaSpot - Turn Ideas into Validated Concepts",
   description: "AI-powered analysis that transforms raw thoughts into research-backed business plans in minutes, not months.",
+  other: {
+    "apple-itunes-app": "app-id=6755480406",
+  },
 };
 
 export default function RootLayout({
