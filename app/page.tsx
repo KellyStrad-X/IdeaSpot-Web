@@ -33,29 +33,30 @@ export default function Home() {
         setTimeout(() => setSuccess(false), 5000);
       } else {
         if (response.status === 409) {
-          setError('Looks like you are already on the waitlist.');
+          setError('Looks like you are already subscribed.');
         } else {
           setError(data.error || 'Something went wrong');
         }
       }
     } catch (err) {
-      setError('Failed to join waitlist. Please try again.');
+      setError('Failed to subscribe. Please try again.');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleButtonClick = (source: string) => {
-    // Scroll to the signup form
-    const signupSection = document.getElementById('signup');
-    if (signupSection) {
-      signupSection.scrollIntoView({ behavior: 'smooth' });
-      // Focus the email input after scrolling
-      setTimeout(() => {
-        const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement;
-        if (emailInput) emailInput.focus();
-      }, 500);
-    }
+  const directStoreUrl = 'itms-apps://itunes.apple.com/app/id6755480406';
+
+  const handleDownloadClick = (source: string) => {
+    // Track the click (fire and forget)
+    fetch('/api/track-click', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'download_button', source }),
+    }).catch(() => {}); // Ignore errors
+
+    // Navigate to App Store
+    window.location.href = directStoreUrl;
   };
 
   return (
@@ -68,9 +69,9 @@ export default function Home() {
           </div>
           <button
             className={styles.navButton}
-            onClick={() => handleButtonClick('nav-button')}
+            onClick={() => handleDownloadClick('nav-button')}
           >
-            Join Waitlist
+            Download
           </button>
         </div>
       </nav>
@@ -87,9 +88,9 @@ export default function Home() {
             </p>
             <button
               className={styles.button}
-              onClick={() => handleButtonClick('hero-button')}
+              onClick={() => handleDownloadClick('hero-button')}
             >
-              Join Waitlist
+              Download Now
             </button>
           </div>
 
@@ -115,9 +116,9 @@ export default function Home() {
       {/* Email Signup Section */}
       <section className={styles.signup} id="signup">
         <div className={styles.signupCard}>
-          <h2 className={styles.signupTitle}>Join the Waitlist</h2>
+          <h2 className={styles.signupTitle}>Stay Updated</h2>
           <p className={styles.signupText}>
-            Join our beta program and be the first to validate your ideas with IdeaSpot.
+            Get the latest updates, tips, and news about IdeaSpot delivered to your inbox.
           </p>
           <form
             className={styles.signupForm}
@@ -137,7 +138,7 @@ export default function Home() {
               className={styles.submitButton}
               disabled={loading}
             >
-              {loading ? 'Joining...' : 'Join Waitlist'}
+              {loading ? 'Subscribing...' : 'Subscribe'}
             </button>
           </form>
 
@@ -154,7 +155,7 @@ export default function Home() {
           )}
 
           <p className={styles.disclaimer}>
-            Free for beta testers. No credit card required.
+            No spam, unsubscribe anytime.
           </p>
         </div>
       </section>
