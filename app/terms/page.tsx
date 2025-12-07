@@ -91,15 +91,120 @@ export default function Terms() {
         </section>
 
         <section className={styles.section}>
-          <h2>9. Termination</h2>
+          <h2>9. Payments and Subscriptions</h2>
           <p>
-            We reserve the right to suspend or terminate your access to the App at any time, with or without
-            cause, and with or without notice.
+            IdeaSpot may offer paid subscription plans or in-app purchases. By purchasing a subscription or
+            making a payment, you agree to the following:
+          </p>
+          <ul>
+            <li><strong>Pricing:</strong> All prices are subject to change with notice. Current subscribers will be notified of pricing changes.</li>
+            <li><strong>Billing:</strong> Subscriptions are billed in advance on a recurring basis (monthly or annually) and will auto-renew unless cancelled.</li>
+            <li><strong>Payment Methods:</strong> Payments are processed through Apple's App Store or Google Play Store, subject to their respective terms and policies.</li>
+            <li><strong>Cancellation:</strong> You may cancel your subscription at any time through your App Store account settings. Cancellations take effect at the end of the current billing period.</li>
+            <li><strong>Refunds:</strong> Refunds are handled according to Apple App Store or Google Play Store policies. Generally, all sales are final unless required by law.</li>
+            <li><strong>Free Trials:</strong> Free trial periods, if offered, will automatically convert to paid subscriptions unless cancelled before the trial ends.</li>
+          </ul>
+        </section>
+
+        <section className={styles.section}>
+          <h2>10. Warranties and Disclaimers</h2>
+          <p>
+            THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+            TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO:
+          </p>
+          <ul>
+            <li>WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT</li>
+            <li>WARRANTIES REGARDING THE ACCURACY, RELIABILITY, OR COMPLETENESS OF AI-GENERATED CONTENT</li>
+            <li>WARRANTIES THAT THE SERVICE WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE</li>
+            <li>WARRANTIES REGARDING THE RESULTS OBTAINED FROM USING THE SERVICE</li>
+          </ul>
+          <p>
+            <strong>IMPORTANT:</strong> Business decisions based on AI-generated analysis are made at your sole risk.
+            We do not guarantee business success, profitability, or any specific outcomes from implementing
+            recommendations provided by the App.
+          </p>
+          <p>
+            You acknowledge that the App is in beta and may contain bugs, errors, or other issues that could cause
+            system failures, data loss, or other problems. You assume all risks associated with your use of the App.
           </p>
         </section>
 
         <section className={styles.section}>
-          <h2>10. Changes to Terms</h2>
+          <h2>11. Indemnification</h2>
+          <p>
+            You agree to indemnify, defend, and hold harmless IdeaSpot, its affiliates, officers, directors, employees,
+            and agents from any claims, liabilities, damages, losses, costs, or expenses (including reasonable attorneys'
+            fees) arising from:
+          </p>
+          <ul>
+            <li>Your use of the App or services</li>
+            <li>Your violation of these Terms of Service</li>
+            <li>Your violation of any rights of another party</li>
+            <li>Any content or ideas you submit through the App</li>
+          </ul>
+        </section>
+
+        <section className={styles.section}>
+          <h2>12. Termination</h2>
+          <p>
+            We reserve the right to suspend or terminate your access to the App at any time, with or without
+            cause, and with or without notice. Upon termination:
+          </p>
+          <ul>
+            <li>Your right to use the App immediately ceases</li>
+            <li>Any outstanding fees owed to us become immediately due and payable</li>
+            <li>We may delete your account data in accordance with our Privacy Policy</li>
+          </ul>
+          <p>
+            Sections of these Terms that by their nature should survive termination will survive, including but not
+            limited to warranty disclaimers, limitations of liability, and dispute resolution provisions.
+          </p>
+        </section>
+
+        <section className={styles.section}>
+          <h2>13. Dispute Resolution and Governing Law</h2>
+          <h3>13.1 Governing Law</h3>
+          <p>
+            These Terms shall be governed by and construed in accordance with the laws of the State of California,
+            United States, without regard to its conflict of law provisions.
+          </p>
+
+          <h3>13.2 Arbitration Agreement</h3>
+          <p>
+            Any dispute, controversy, or claim arising out of or relating to these Terms or the breach, termination,
+            enforcement, interpretation, or validity thereof, including the determination of the scope or applicability
+            of this agreement to arbitrate, shall be determined by binding arbitration in California, before a single
+            arbitrator. The arbitration shall be administered by JAMS pursuant to its Comprehensive Arbitration Rules
+            and Procedures.
+          </p>
+          <p>
+            <strong>CLASS ACTION WAIVER:</strong> You agree that any arbitration or proceeding shall be limited to
+            the dispute between us and you individually. To the full extent permitted by law, (1) no arbitration or
+            proceeding shall be joined with any other; (2) there is no right or authority for any dispute to be
+            arbitrated on a class-action basis or to utilize class action procedures; and (3) there is no right or
+            authority for any dispute to be brought in a purported representative capacity on behalf of the general
+            public or any other persons.
+          </p>
+
+          <h3>13.3 Exceptions to Arbitration</h3>
+          <p>
+            Either party may seek enforcement of this arbitration agreement or any arbitration award in any court of
+            competent jurisdiction. Additionally, you and we both retain the right to bring an individual action in
+            small claims court and the right to seek injunctive or other equitable relief in a court of competent
+            jurisdiction to prevent the actual or threatened infringement, misappropriation, or violation of a party's
+            copyrights, trademarks, trade secrets, patents, or other intellectual property rights.
+          </p>
+
+          <h3>13.4 30-Day Right to Opt Out</h3>
+          <p>
+            You have the right to opt out of this arbitration agreement by sending written notice of your decision
+            to opt out to support@ideaspot.app within 30 days of first accepting these Terms. Your notice must include
+            your name and address. If you opt out, all other parts of these Terms will continue to apply.
+          </p>
+        </section>
+
+        <section className={styles.section}>
+          <h2>14. Changes to Terms</h2>
           <p>
             We reserve the right to modify these terms at any time. Continued use of the App after changes
             constitutes acceptance of the modified terms.
@@ -107,7 +212,7 @@ export default function Terms() {
         </section>
 
         <section className={styles.section}>
-          <h2>11. Contact Information</h2>
+          <h2>15. Contact Information</h2>
           <p>
             For questions about these Terms of Service, please contact us at:
             <br />

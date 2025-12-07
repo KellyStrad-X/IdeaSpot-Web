@@ -1,7 +1,64 @@
+'use client';
+
+import { useState, FormEvent } from 'react';
 import styles from './page.module.css';
 import Image from 'next/image';
 
 export default function Home() {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>, source: string) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    setSuccess(false);
+
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, source }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess(true);
+        setEmail('');
+        setTimeout(() => setSuccess(false), 5000);
+      } else {
+        if (response.status === 409) {
+          setError('Looks like you are already subscribed.');
+        } else {
+          setError(data.error || 'Something went wrong');
+        }
+      }
+    } catch (err) {
+      setError('Failed to subscribe. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const directStoreUrl = 'itms-apps://itunes.apple.com/app/id6755480406';
+
+  const handleDownloadClick = (source: string) => {
+    // Track the click (fire and forget)
+    fetch('/api/track-click', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'download_button', source }),
+    }).catch(() => {}); // Ignore errors
+
+    // Navigate to App Store
+    window.location.href = directStoreUrl;
+  };
+
   return (
     <main className={styles.main}>
       {/* Navigation */}
@@ -10,7 +67,12 @@ export default function Home() {
           <div className={styles.logo}>
             <Image src="/logo.png" alt="IdeaSpot" width={100} height={100} className={styles.logoImage} />
           </div>
-          <button className={styles.navButton}>Join Beta</button>
+          <button
+            className={styles.navButton}
+            onClick={() => handleDownloadClick('nav-button')}
+          >
+            Download
+          </button>
         </div>
       </nav>
 
@@ -24,8 +86,11 @@ export default function Home() {
             <p className={styles.subtitle}>
               AI-powered analysis that transforms raw thoughts into research-backed business plans in minutes, not months.
             </p>
-            <button className={styles.button}>
-              Join Beta Waitlist
+            <button
+              className={styles.button}
+              onClick={() => handleDownloadClick('hero-button')}
+            >
+              Download Now
             </button>
           </div>
 
@@ -34,7 +99,6 @@ export default function Home() {
             {['/IMG_4579.PNG', '/IMG_4580.PNG', '/IMG_4581.PNG', '/IMG_4582.PNG'].map((screenshot, i) => (
               <div key={i} className={styles.phoneContainer} style={{ '--index': i } as any}>
                 <div className={styles.phone}>
-                  <div className={styles.phoneNotch}></div>
                   <Image
                     src={screenshot}
                     alt={`IdeaSpot App Screenshot ${i + 1}`}
@@ -50,25 +114,48 @@ export default function Home() {
       </section>
 
       {/* Email Signup Section */}
-      <section className={styles.signup}>
+      <section className={styles.signup} id="signup">
         <div className={styles.signupCard}>
-          <h2 className={styles.signupTitle}>Get Early Access</h2>
+          <h2 className={styles.signupTitle}>Stay Updated</h2>
           <p className={styles.signupText}>
-            Join our beta program and be the first to validate your ideas with IdeaSpot.
+            Get the latest updates, tips, and news about IdeaSpot delivered to your inbox.
           </p>
-          <form className={styles.signupForm}>
+          <form
+            className={styles.signupForm}
+            onSubmit={(e) => handleSubmit(e, 'signup-form')}
+          >
             <input
               type="email"
               placeholder="Enter your email"
               className={styles.emailInput}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
+              disabled={loading}
             />
-            <button type="submit" className={styles.submitButton}>
-              Join Beta
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={loading}
+            >
+              {loading ? 'Subscribing...' : 'Subscribe'}
             </button>
           </form>
+
+          {success && (
+            <p className={styles.successMessage}>
+              Thanks for joining! We'll be in touch soon.
+            </p>
+          )}
+
+          {error && (
+            <p className={styles.errorMessage}>
+              {error}
+            </p>
+          )}
+
           <p className={styles.disclaimer}>
-            Free for beta testers. No credit card required.
+            No spam, unsubscribe anytime.
           </p>
         </div>
       </section>
@@ -117,7 +204,7 @@ export default function Home() {
             <div className={styles.linkColumn}>
               <h4 className={styles.linkHeading}>Product</h4>
               <a href="#features" className={styles.footerLink}>Features</a>
-              <a href="#pricing" className={styles.footerLink}>Pricing</a>
+              <a href="/pricing" className={styles.footerLink}>Pricing</a>
               <a href="#beta" className={styles.footerLink}>Beta Access</a>
             </div>
 

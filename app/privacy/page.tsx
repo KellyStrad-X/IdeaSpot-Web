@@ -59,8 +59,8 @@ export default function Privacy() {
         <section className={styles.section}>
           <h2>4. AI Processing</h2>
           <p>
-            Your business ideas are processed using OpenAI's GPT-4 API to generate analysis and recommendations.
-            This processing is subject to OpenAI's data usage policies. We do not use your idea content to
+            Your business ideas are processed using Anthropic's Claude API to generate analysis and recommendations.
+            This processing is subject to Anthropic's data usage policies. We do not use your idea content to
             train our AI models or share it publicly.
           </p>
         </section>
@@ -87,7 +87,7 @@ export default function Privacy() {
           <h2>6. Data Sharing and Disclosure</h2>
           <p>We do not sell your personal information. We may share data with:</p>
           <ul>
-            <li><strong>Service Providers:</strong> Firebase (Google) for hosting, OpenAI for AI processing</li>
+            <li><strong>Service Providers:</strong> Firebase (Google) for hosting, Anthropic for AI processing</li>
             <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
             <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
           </ul>
